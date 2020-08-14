@@ -16,47 +16,50 @@ Access to Spider resources
     
 + Request
     + Header
+    
             Authorization: Basic dXNlcjpwYXNzd29yZA==
             x-api-version: 1.0
 
 + Response 200 (application/json)
     + Header
+    
             ETag: "euyfewuyfvew76f7"
             cache-control: max-age=600
         
     + Body
-        {
-            "page":
-                {
-                    "number":1,
-                    "size":10,
-                    "totalPages":20
-                }
-            "spiders":
-                [
+
+            {
+                "page":
                     {
-                        "sightedAt" : "2014-08-29T07:00",
-                        "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
-                        "description" : "Spider I saw on the train",
-                        "tags": [
-                            "stripy"
-                        ]
+                        "number":1,
+                        "size":10,
+                        "totalPages":20
                     },
-                    {
-                        "sightedAt" : "2014-08-29T07:10",
-                        "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
-                        "description" : "Another spider I saw on the train (or was it the same one?)",
-                        "tags": [
-                            "stripy"
-                        ]
-                    },
-                    {
-                        "sightedAt" : "2020-08-31T07:10",
-                        "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
-                        "description" : "6 Years since last sighting, same spider?",
-                        "tags": [
-                            "stripy"
-                        ]
-                    }
-                ]
-        }
+                "spiders":
+                    [
+                        {
+                            "sightedAt" : "2014-08-29T07:00",
+                            "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
+                            "description" : "Spider I saw on the train",
+                            "tags": [
+                                "stripy"
+                            ]
+                        },
+                        {
+                            "sightedAt" : "2014-08-29T07:10",
+                            "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
+                            "description" : "Another spider I saw on the train (or was it the same one?)",
+                            "tags": [
+                                "stripy"
+                            ]
+                        },
+                        {
+                            "sightedAt" : "2020-08-31T07:10",
+                            "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
+                            "description" : "6 Years since last sighting, same spider?",
+                            "tags": [
+                                "stripy"
+                            ]
+                        }
+                    ]
+            }
