@@ -1,80 +1,59 @@
 FORMAT: 1A
-HOST: https://polls.apiblueprint.org/
+HOST: https://api.apiblueprint.org/
 
-# eagle
+# Spider Log API
+Provides services for the Spider Log app family, recording the world's spider sightings
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+# Group Spiders
+Access to Spider resources
 
-## Questions Collection [/questions]
+## My Spiders [/spiders{?page,size}]
+### Get all my spider sightings [GET]
 
-### List All Questions [GET]
++ Parameters
+    + page (required, number, '1')... 'page' number
+    + size (required, number, '10)... page 'size'
+    
++ Request
+    + Header
+            Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 + Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
+    + Header
+        
     + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+        {
+            "page":
+                {
+                    "number":1,
+                    "size":10,
+                    "totalPages":20
+                }
+            "spiders":
+                [
                     {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
+                        "sightedAt" : "2014-08-29T07:00",
+                        "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
+                        "description" : "Spider I saw on the train",
+                        "tags": [
+                            "stripy"
+                        ]
+                    },
+                    {
+                        "sightedAt" : "2014-08-29T07:10",
+                        "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
+                        "description" : "Another spider I saw on the train (or was it the same one?)",
+                        "tags": [
+                            "stripy"
+                        ]
+                    },
+                    {
+                        "sightedAt" : "2020-08-31T07:10",
+                        "imageUrl" : "https://s3-eu-west-1.amazonaws.com/uid-19247681/201408/14562881209_046a7f4d3d_z.jpg",
+                        "description" : "6 Years since last sighting, same spider?",
+                        "tags": [
+                            "stripy"
+                        ]
                     }
                 ]
-            }
+        }
